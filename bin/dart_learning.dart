@@ -1,5 +1,5 @@
-import 'package:dart_learning/dart_learning.dart' as dart_learning;
+import 'package:dart_learning/dart_lib.dart' ;
 
 void main(List<String> arguments) {
-  print('Hello world: ${dart_learning.calculate()}!');
+  print('Hello world: ${calculate()}!');
 }
