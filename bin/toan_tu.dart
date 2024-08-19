@@ -122,4 +122,109 @@ print("g: $g, e: $e");
     ..write(" ")
     ..write("World!");
   print(s.toString()); // In ra "Hello World!"
+
+  // //! Assignment (Toán tử gán)
+  // Toán tử gán (=, +=, -=, *=, /=, %=, v.v.) được sử dụng để gán giá trị cho biến.
+  int t = 5;
+  t += 3; // t = t + 3, in ra 8
+  print(t); // In ra 8
+
+  t *= 2; // t = t * 2, in ra 16
+  print(t); // In ra 16
+
+// //! Câu lệnh if, else if, và else
+  // Câu lệnh if kiểm tra một điều kiện và thực thi đoạn mã bên trong nếu điều kiện đó đúng (true).
+  // Bạn có thể mở rộng với else if để kiểm tra các điều kiện khác,
+  // và else để thực hiện đoạn mã nếu tất cả các điều kiện trên đều sai.
+  // int age = 11;
+
+  // if (age >= 18) {
+  //   print('You are an adult.');
+  // } else if (age >= 13) {
+  //   print('You are a teenager.');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else {
+  //   print('You are a child.');
+  // }
+
+
+  // //! Câu lệnh if, else if, và else
+  // Câu lệnh if kiểm tra một điều kiện và thực thi đoạn mã bên trong nếu điều kiện đó đúng (true).
+  // Bạn có thể mở rộng với else if để kiểm tra các điều kiện khác,
+  // và else để thực hiện đoạn mã nếu tất cả các điều kiện trên đều sai.
+  // int age = 11;
+
+  // if (age >= 18) {
+  //   print('You are an adult.');
+  // } else if (age >= 13) {
+  //   print('You are a teenager.');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else {
+  //   print('You are a child.');
+  // }
+
+// //! Câu lệnh if, else if, và else
+  // Câu lệnh if kiểm tra một điều kiện và thực thi đoạn mã bên trong nếu điều kiện đó đúng (true).
+  // Bạn có thể mở rộng với else if để kiểm tra các điều kiện khác,
+  // và else để thực hiện đoạn mã nếu tất cả các điều kiện trên đều sai.
+  int age = 11;
+
+  if (age >= 18) {
+    print('You are an adult.');
+  } else if (age >= 13) {
+    print('You are a teenager.');
+  } else if (age >= 10 && age <= 12) {
+    print('Special man');
+  } else if (age >= 10 && age <= 12) {
+    print('Special man');
+  } else if (age >= 10 && age <= 12) {
+    print('Special man');
+  } else if (age >= 10 && age <= 12) {
+    print('Special man');
+  } else {
+    print('You are a child.');
+  }
+  
+  switch (age) {
+    case >= 18:
+      print('You are an adult.');
+      break;
+    case >= 13:
+      print('You are a teenager.');
+      break;
+    case >= 10 && <= 12:
+      print('Special man');
+      break;
+    default:
+      print('You are a child.');
+  }
+
+  // //! Vòng lặp for
+  // Vòng lặp for được sử dụng để lặp lại một đoạn mã với số lần nhất định.
+  for (int index = 1; index <= 5; index++) {
+    print('Number $index');
+  }
+
+  //! Vòng lặp while
+  // Vòng lặp while tiếp tục lặp lại một đoạn mã miễn là điều kiện vẫn đúng.
+  int u = 1;
+
+  while (u <= 5) {
+    print('Number $u');
+    u++;
+  }
+  
+
+  // //! Vòng lặp do-while
+  // Vòng lặp do-while tương tự như while,
+  // nhưng khác biệt ở chỗ nó đảm bảo rằng đoạn mã sẽ được
+  // thực hiện ít nhất một lần trước khi điều kiện được kiểm tra.
+  int hh = 6;
+
+  do {
+    print('Number $hh');
+    e++;
+  } while (hh <= 5);
 }
