@@ -227,4 +227,82 @@ print("g: $g, e: $e");
     print('Number $hh');
     e++;
   } while (hh <= 5);
+
+  // //! Câu lệnh break và continue
+  // break: Dừng ngay lập tức vòng lặp hoặc thoát khỏi switch.
+  // continue: Bỏ qua phần còn lại của vòng lặp hiện tại và chuyển sang lần lặp tiếp theo.
+  // for (int i = 1; i <= 5; i++) {
+  //   if (i == 3) {
+  //     continue; // Bỏ qua giá trị 3
+  //   }
+  //   if (i == 5) {
+  //     break; // Dừng vòng lặp khi i là 5
+  //   }
+  //   print('Number $i');
+  // }
+
+  // //! Câu lệnh break và continue
+// //! try-catch-throw
+  // là một phần quan trọng của control flow trong Dart
+  // để xử lý các ngoại lệ (exceptions) và các lỗi có thể xảy ra trong quá trình thực thi chương trình
+
+  // Khi bạn dự đoán rằng một đoạn mã có thể gây ra lỗi như:
+  //  - chia cho 0,
+  //  - truy cập vào một phần tử không tồn tại trong danh sách,
+  //  bạn có thể bao quanh đoạn mã đó bằng một khối try-catch để bắt và xử lý lỗi
+  //  thay vì để chương trình kết thúc một cách đột ngột.
+
+  // int result = 10 ~/ 0; // Thử chia cho 0, đây là phép toán gây lỗi
+  // print(result);
+
+  try {
+    // Chứa đoạn mã mà bạn muốn thực thi và dự đoán có thể gây ra lỗi
+    int result = 10 ~/ 0; // Thử chia cho 0, đây là phép toán gây lỗi
+    print(result);
+  } catch (e) {
+    // Chứa đoạn mã để xử lý ngoại lệ nếu có lỗi xảy ra trong try block.
+    print('Caught an exception: $e'); // Xử lý lỗi và in ra thông báo
+  }
+
+  //? Sử dụng on để bắt các loại ngoại lệ cụ thể
+  // sử dụng từ khóa on để chỉ định rằng bạn chỉ muốn bắt một loại ngoại lệ cụ thể.
+  // int result = 10 ~/ 0;
+  // print(result);
+  try {
+    int result = 10 ~/ 0;
+    print(result);
+  } on IntegerDivisionByZeroException {
+    print('Cannot divide by zero');
+  } catch (e) {
+    print('Caught an exception: $e');
+  }
+
+  //? Sử dụng finally để dọn dẹp tài nguyên
+  // finally block được sử dụng để thực hiện các hành động mà bạn muốn thực hiện bất kể ngoại lệ có xảy ra hay không
+  try {
+    int result = 10 ~/ 0;
+    print(result);
+  } catch (e) {
+    print('Caught an exception: $e');
+  } finally {
+    print('This is always executed');
+  }
+
+  //? throw để tạo ra (hoặc ném) một ngoại lệ (exception)
+  // khi bạn muốn chủ động báo hiệu rằng một lỗi đã xảy ra (do bạn định nghĩa điều kiện)
+  // trong chương trình của bạn
+
+  void checkAge(int age) {
+    if (age < 18) {
+      throw Exception('You must be at least 18 years old.');
+    } else {
+      print('You are eligible.');
+    }
+  }
+
+  try {
+    checkAge(19); // Gọi hàm với giá trị không hợp lệ
+  } catch (e) {
+    print('Caught an exception: $e'); // Bắt và xử lý ngoại lệ
+  }
 }
