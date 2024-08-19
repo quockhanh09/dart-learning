@@ -41,3 +41,7 @@ void main(List<String> arguments) {
   print(myCountry);
   // boolean là kiểu có 2 giá trị true và false
 }
+// cấu trúc variable 
+// 1 kiểu dữ liệu 
+// 2 tên biến 
+// 3 giá trị
