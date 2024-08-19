@@ -305,4 +305,16 @@ print("g: $g, e: $e");
   } catch (e) {
     print('Caught an exception: $e'); // Bắt và xử lý ngoại lệ
   }
+
+  // //! Dart input
+  // Để thực hiện nhận giá trị mà người dùng nhập từ bàn phím, sử dụng hàm readLineSync
+  // print("Enter your name:");
+ // Đọc giá trị của name
+  // String? inputedName = stdin.readLineSync();
+  // print("Enter your Student Id:");
+  // int? studentId = int.tryParse(stdin.readLineSync() ?? '');
+  // In ra giá trị của name và studentId
+  // print("Hello, $inputedName\nYour student ID: $studentId");
+  // Để có thể nhập từ bàn phím thì cần phải chạy dart application trên terminal
+  // bằng câu lệnh: dart run path-to-dart-file
 }
