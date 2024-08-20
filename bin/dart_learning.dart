@@ -1,4 +1,5 @@
 import 'package:dart_learning/dart_lib.dart' ;
+import 'dart:io';
 
 void main(List<String> arguments) {
   print('Hello world: ${calculate()}!');
@@ -6,34 +7,34 @@ void main(List<String> arguments) {
   //keyword : var , final, const , dynamic
   
    // var : có thể thay đổi tùy trong tương lai
-   var age = 25;
-   print("gia tri cua age la $age");
-   age = 30;
-   print("gia tri cua age la $age");
+  //  var age = 25;
+  //  print("gia tri cua age la $age");
+  //  age = 30;
+  //  print("gia tri cua age la $age");
    // final : sẽ ko thay đổi trong tương lai, chỉ gán được 1 lần duy nhât
-   final year = 2024;
-   print(" this year: $year");
+  //  final year = 2024;
+  //  print(" this year: $year");
    // const : chỉ gán 1 lần duy nhất , chỉ gán số 
-   const month = 0 ; 
-   print(month);
+  //  const month = 0 ; 
+  //  print(month);
    // dynamic : kiểu dữ liệu đặc biệt là 1 kiểu khai báo biến giá trị của biến có thể thay đổi lúc thực thi và trong tương lai
-   dynamic a = "khanh";
-   print("gia tri của a $a");
-   a = 20;
-   print("gia tri sau khi thay doi $a");
+  //  dynamic a = "khanh";
+  //  print("gia tri của a $a");
+  //  a = 20;
+  //  print("gia tri sau khi thay doi $a");
    // int , double , string, bool, list
    // biểu dể lưu trữ và quản lý dữ liệu
    // bạn có thể khai báo với hoặc ko cần chỉ định dữ liệu
    // Sử dụng final và const để khai báo biển mà bạn ko muốn thay đổi (gán 1 lần duy nhất)
   
   //object
-  Object obj = Object();
-  obj.toString();
-  String dayInMonth = " aufafi";
-  dayInMonth.toString();
+  // Object obj = Object();
+  // obj.toString();
+  // String dayInMonth = " aufafi";
+  // dayInMonth.toString();
 
-  int inDay = 24;
-  inDay.toString();
+  // int inDay = 24;
+  // inDay.toString();
   // string là 1 kiểu chuỗi , sẽ để dc nhiều tk cha;
   // string có thể được khai báo bằng cách sử dụng dấu ngoặc kép
   
@@ -78,20 +79,29 @@ void main(List<String> arguments) {
 
   // Map tương tự như 1 từ điển (dictionary) trong các ngôn ngữ lập trình khác
 
-  Map<String, int> phoneBook = {
-    "Alice": 123456,
-    "Bob": 9865523,
-    "Charlie": 112233
-  };
-  print(phoneBook["Alice"]); // In ra 123456 (truy cập giá trị thông qua khoá)
+  // Map<String, int> phoneBook = {
+  //   "Alice": 123456,
+  //   "Bob": 9865523,
+  //   "Charlie": 112233
+  // };
+  // print(phoneBook["Alice"]); // In ra 123456 (truy cập giá trị thông qua khoá)
 
-  phoneBook["David"] = 445566; // Thêm cặp khoá-giá trị mới
-  print(
-      phoneBook); // In ra {Alice: 123456, Bob: 9865523, Charlie: 112233, David: 445566}
+  // phoneBook["David"] = 445566; // Thêm cặp khoá-giá trị mới
+  // print(
+  //     phoneBook); // In ra {Alice: 123456, Bob: 9865523, Charlie: 112233, David: 445566}
 
-  phoneBook["Alice"] = 555555; //Cập nhật giá trị của khoá "Alice"
-  print(
-      phoneBook); // In ra {Alice: 555555, Bob: 9865523, Charlie: 112233, David: 445566}
+  // phoneBook["Alice"] = 555555; //Cập nhật giá trị của khoá "Alice"
+  // print(
+  //     phoneBook); // In ra {Alice: 555555, Bob: 9865523, Charlie: 112233, David: 445566}
+
+   print("Nhập một số:");
+ int number = int.parse(stdin.readLineSync()!);
+// int number = 5;
+  if (number % 2 == 0) {
+    print("$number là số chẵn.");
+  } else {
+    print("$number là số lẻ.");
+  }
 }
 // cấu trúc variable 
 // 1 kiểu dữ liệu 

@@ -1,5 +1,7 @@
+import 'dart:io';
 
-void main(List<String> arguments){
+void main(){
+
   // print("Hello, World!");
   //! Operator
 //! Unary postfix (toán tử đơn hậu tố)
@@ -11,12 +13,12 @@ void main(List<String> arguments){
   //  - kiểm tra null
 
   // //?  tăng giảm hậu tố
-  int x = 5;
-  x++; // Tăng giá trị x lên 1 (x = x +1)
+  // int x = 5;
+  // x++; // Tăng giá trị x lên 1 (x = x +1)
 
-  print(x);
-  x--;
-  print(x);
+  // print(x);
+  // x--;
+  // print(x);
 // //? gọi hàm
   // gọi là 1 hành động gọi tới 1 hàm đã dc định nghĩa,
   // để thực thi đoạn code trong hàm đó và nhận lại kết quả (nếu có)
@@ -44,23 +46,23 @@ void main(List<String> arguments){
   //  - phủ định bit,
   //  - tăng giảm tiền tố
 // phủ định
-int y = 3;
-int z = -y;
-print(z);
+// int y = 3;
+// int z = -y;
+// print(z);
 
-bool isTrue = false;
-print(!isTrue);
-//tăng dần tiền tố
-y=5;
-++y;
-print(y);
+// bool isTrue = false;
+// print(!isTrue);
+// //tăng dần tiền tố
+// y=5;
+// ++y;
+// print(y);
 
-int e=3;
-print("e: $e");
-int f=++e;
-print("f: $f, e: $e");
-int g=e++;
-print("g: $g, e: $e");
+// int e=3;
+// print("e: $e");
+// int f=++e;
+// print("f: $f, e: $e");
+// int g=e++;
+// print("g: $g, e: $e");
 
 // So sánh ++e hoặc e++
 // //! Multiplicative (Toán tử nhân chia)
@@ -73,64 +75,64 @@ print("g: $g, e: $e");
   // print(a % b); // Lấy phần dư, in ra 1
 
   // //! Additive (Toán tử cộng trừ)
-  int c = 10;
-  int d = 5;
-  print(c + d); // Cộng, in ra 15
-  print(c - d); // Trừ, in ra 5
+  // int c = 10;
+  // int d = 5;
+  // print(c + d); // Cộng, in ra 15
+  // print(c - d); // Trừ, in ra 5
 
   //! Relational and type test (Toán tử so sánh và kiểm tra kiểu)
   // Bao gồm các toán tử so sánh (>, <, >=, <=),
   // ép kiểu (as), và kiểm tra kiểu (is, is!).
-  int h = 10;
-  int i = 20;
-  print(h > i); // So sánh lớn hơn, in ra false
-  print(h <= i); // So sánh nhỏ hơn hoặc bằng, in ra true
+  // int h = 10;
+  // int i = 20;
+  // print(h > i); // So sánh lớn hơn, in ra false
+  // print(h <= i); // So sánh nhỏ hơn hoặc bằng, in ra true
 
-  dynamic j = "Hello";
-  print(j is String); // Kiểm tra j có phải kiểu String không, in ra true
-  print(j); // Ép kiểu j thành String, in ra Hello
+  // dynamic j = "Hello";
+  // print(j is String); // Kiểm tra j có phải kiểu String không, in ra true
+  // print(j); // Ép kiểu j thành String, in ra Hello
 
   // //! Equality (Toán tử so sánh bằng nhau và khác nhau)
   // So sánh bằng nhau (==) và khác nhau (!=).
-  int k = 10;
-  int l = 10;
-  int m = 5;
-  print(k == l); // So sánh bằng, in ra true
-  print(k != m); // So sánh khác, in ra true
+  // int k = 10;
+  // int l = 10;
+  // int m = 5;
+  // print(k == l); // So sánh bằng, in ra true
+  // print(k != m); // So sánh khác, in ra true
 
   // //! Logical AND, OR (Toán tử logic AND, OR)
   // Toán tử logic AND (&&) và OR (||), được sử dụng để kết hợp các biểu thức logic.
-  bool n = true;
-  bool o = false;
-  // if (is2047 && isNearly2048) {
-  //   print("take a break");
-  // }
-  print(n && o); // AND logic, in ra false
-  print(n || o); // OR logic, in ra true
+  // bool n = true;
+  // bool o = false;
+  // // if (is2047 && isNearly2048) {
+  // //   print("take a break");
+  // // }
+  // print(n && o); // AND logic, in ra false
+  // print(n || o); // OR logic, in ra true
 
   // //! Conditional (Toán tử ba ngôi - ternary operator)
   // Toán tử điều kiện (? :) được sử dụng để chọn giữa hai giá trị dựa trên một điều kiện.
-  int r = 4;
-  String result1 = r > 5 ? "Lớn hơn 5" : "Nhỏ hơn hoặc bằng 5";
-  print(result1); // In ra "Lớn hơn 5"
+  // int r = 4;
+  // String result1 = r > 5 ? "Lớn hơn 5" : "Nhỏ hơn hoặc bằng 5";
+  // print(result1); // In ra "Lớn hơn 5"
 
-  // //! Cascade (Toán tử cascade)
-  // Toán tử cascade (..) cho phép bạn thực hiện nhiều phép gán
-  // hoặc gọi hàm trên cùng một đối tượng mà không cần lặp lại tên của đối tượng đó.
-  var s = StringBuffer()
-    ..write("Hello")
-    ..write(" ")
-    ..write("World!");
-  print(s.toString()); // In ra "Hello World!"
+  // // //! Cascade (Toán tử cascade)
+  // // Toán tử cascade (..) cho phép bạn thực hiện nhiều phép gán
+  // // hoặc gọi hàm trên cùng một đối tượng mà không cần lặp lại tên của đối tượng đó.
+  // var s = StringBuffer()
+  //   ..write("Hello")
+  //   ..write(" ")
+  //   ..write("World!");
+  // print(s.toString()); // In ra "Hello World!"
 
   // //! Assignment (Toán tử gán)
   // Toán tử gán (=, +=, -=, *=, /=, %=, v.v.) được sử dụng để gán giá trị cho biến.
-  int t = 5;
-  t += 3; // t = t + 3, in ra 8
-  print(t); // In ra 8
+  // int t = 5;
+  // t += 3; // t = t + 3, in ra 8
+  // print(t); // In ra 8
 
-  t *= 2; // t = t * 2, in ra 16
-  print(t); // In ra 16
+  // t *= 2; // t = t * 2, in ra 16
+  // print(t); // In ra 16
 
 // //! Câu lệnh if, else if, và else
   // Câu lệnh if kiểm tra một điều kiện và thực thi đoạn mã bên trong nếu điều kiện đó đúng (true).
@@ -169,64 +171,58 @@ print("g: $g, e: $e");
   // Câu lệnh if kiểm tra một điều kiện và thực thi đoạn mã bên trong nếu điều kiện đó đúng (true).
   // Bạn có thể mở rộng với else if để kiểm tra các điều kiện khác,
   // và else để thực hiện đoạn mã nếu tất cả các điều kiện trên đều sai.
-  int age = 11;
+  // int age = 11;
 
-  if (age >= 18) {
-    print('You are an adult.');
-  } else if (age >= 13) {
-    print('You are a teenager.');
-  } else if (age >= 10 && age <= 12) {
-    print('Special man');
-  } else if (age >= 10 && age <= 12) {
-    print('Special man');
-  } else if (age >= 10 && age <= 12) {
-    print('Special man');
-  } else if (age >= 10 && age <= 12) {
-    print('Special man');
-  } else {
-    print('You are a child.');
-  }
+  // if (age >= 18) {
+  //   print('You are an adult.');
+  // } else if (age >= 13) {
+  //   print('You are a teenager.');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else if (age >= 10 && age <= 12) {
+  //   print('Special man');
+  // } else {
+  //   print('You are a child.');
+  // }
   
-  switch (age) {
-    case >= 18:
-      print('You are an adult.');
-      break;
-    case >= 13:
-      print('You are a teenager.');
-      break;
-    case >= 10 && <= 12:
-      print('Special man');
-      break;
-    default:
-      print('You are a child.');
-  }
+  // switch (age) {
+  //   case >= 18:
+  //     print('You are an adult.');
+  //     break;
+  //   case >= 13:
+  //     print('You are a teenager.');
+  //     break;
+  //   case >= 10 && <= 12:
+  //     print('Special man');
+  //     break;
+  //   default:
+  //     print('You are a child.');
+  // }
 
   // //! Vòng lặp for
   // Vòng lặp for được sử dụng để lặp lại một đoạn mã với số lần nhất định.
-  for (int index = 1; index <= 5; index++) {
-    print('Number $index');
-  }
+  // for (int index = 1; index <= 5; index++) {
+  //   print('Number $index');
+  // }
 
   //! Vòng lặp while
   // Vòng lặp while tiếp tục lặp lại một đoạn mã miễn là điều kiện vẫn đúng.
-  int u = 1;
+  // int u = 1;
 
-  while (u <= 5) {
-    print('Number $u');
-    u++;
-  }
+  // while (u <= 5) {
+  //   print('Number $u');
+  //   u++;
+  // }
   
 
   // //! Vòng lặp do-while
   // Vòng lặp do-while tương tự như while,
   // nhưng khác biệt ở chỗ nó đảm bảo rằng đoạn mã sẽ được
   // thực hiện ít nhất một lần trước khi điều kiện được kiểm tra.
-  int hh = 6;
-
-  do {
-    print('Number $hh');
-    e++;
-  } while (hh <= 5);
 
   // //! Câu lệnh break và continue
   // break: Dừng ngay lập tức vòng lặp hoặc thoát khỏi switch.
@@ -255,56 +251,56 @@ print("g: $g, e: $e");
   // int result = 10 ~/ 0; // Thử chia cho 0, đây là phép toán gây lỗi
   // print(result);
 
-  try {
-    // Chứa đoạn mã mà bạn muốn thực thi và dự đoán có thể gây ra lỗi
-    int result = 10 ~/ 0; // Thử chia cho 0, đây là phép toán gây lỗi
-    print(result);
-  } catch (e) {
-    // Chứa đoạn mã để xử lý ngoại lệ nếu có lỗi xảy ra trong try block.
-    print('Caught an exception: $e'); // Xử lý lỗi và in ra thông báo
-  }
+  // try {
+   // Chứa đoạn mã mà bạn muốn thực thi và dự đoán có thể gây ra lỗi
+  //   int result = 10 ~/ 0; // Thử chia cho 0, đây là phép toán gây lỗi
+  //   print(result);
+  // } catch (e) {
+  // Chứa đoạn mã để xử lý ngoại lệ nếu có lỗi xảy ra trong try block.
+  //   print('Caught an exception: $e'); // Xử lý lỗi và in ra thông báo
+  // }
 
   //? Sử dụng on để bắt các loại ngoại lệ cụ thể
   // sử dụng từ khóa on để chỉ định rằng bạn chỉ muốn bắt một loại ngoại lệ cụ thể.
   // int result = 10 ~/ 0;
   // print(result);
-  try {
-    int result = 10 ~/ 0;
-    print(result);
-  } on IntegerDivisionByZeroException {
-    print('Cannot divide by zero');
-  } catch (e) {
-    print('Caught an exception: $e');
-  }
+  // try {
+  //   int result = 10 ~/ 0;
+  //   print(result);
+  // } on IntegerDivisionByZeroException {
+  //   print('Cannot divide by zero');
+  // } catch (e) {
+  //   print('Caught an exception: $e');
+  // }
 
   //? Sử dụng finally để dọn dẹp tài nguyên
   // finally block được sử dụng để thực hiện các hành động mà bạn muốn thực hiện bất kể ngoại lệ có xảy ra hay không
-  try {
-    int result = 10 ~/ 0;
-    print(result);
-  } catch (e) {
-    print('Caught an exception: $e');
-  } finally {
-    print('This is always executed');
-  }
+  // try {
+  //   int result = 10 ~/ 0;
+  //   print(result);
+  // } catch (e) {
+  //   print('Caught an exception: $e');
+  // } finally {
+  //   print('This is always executed');
+  // }
 
   //? throw để tạo ra (hoặc ném) một ngoại lệ (exception)
   // khi bạn muốn chủ động báo hiệu rằng một lỗi đã xảy ra (do bạn định nghĩa điều kiện)
   // trong chương trình của bạn
 
-  void checkAge(int age) {
-    if (age < 18) {
-      throw Exception('You must be at least 18 years old.');
-    } else {
-      print('You are eligible.');
-    }
-  }
+  // void checkAge(int age) {
+  //   if (age < 18) {
+  //     throw Exception('You must be at least 18 years old.');
+  //   } else {
+  //     print('You are eligible.');
+  //   }
+  // }
 
-  try {
-    checkAge(19); // Gọi hàm với giá trị không hợp lệ
-  } catch (e) {
-    print('Caught an exception: $e'); // Bắt và xử lý ngoại lệ
-  }
+  // try {
+  //   checkAge(19); // Gọi hàm với giá trị không hợp lệ
+  // } catch (e) {
+  //   print('Caught an exception: $e'); // Bắt và xử lý ngoại lệ
+  // }
 
   // //! Dart input
   // Để thực hiện nhận giá trị mà người dùng nhập từ bàn phím, sử dụng hàm readLineSync
@@ -317,4 +313,77 @@ print("g: $g, e: $e");
   // print("Hello, $inputedName\nYour student ID: $studentId");
   // Để có thể nhập từ bàn phím thì cần phải chạy dart application trên terminal
   // bằng câu lệnh: dart run path-to-dart-file
+
+// //! bài tập
+//b1
+//  print("Nhập một số:");
+//  int number = int.parse(stdin.readLineSync()!);
+// // int number = 5;
+//   if (number % 2 == 0) {
+//     print("$number là số chẵn.");
+//   } else {
+//     print("$number là số lẻ.");
+//   }
+
+  //b2 
+  // int aa =6;
+  // int bb = 7;
+  // int cc  = 9;
+  // print("Nhập một số:");
+  // int aa = int.parse(stdin.readLineSync()!);
+  // print("Nhập một số:");
+  // int bb = int.parse(stdin.readLineSync()!);
+  // print("Nhập một số:");
+  // int cc = int.parse(stdin.readLineSync()!);
+  // int max;
+  
+  // if (aa >= bb && aa >= cc) {
+  //   max = aa;
+  // } else if (bb >= aa && bb >= cc) {
+  //   max = bb;
+  // } else {
+  //   max = cc;
+  // }
+  //  print('Số lớn nhất trong ba số là: $max');
+//
+// b3
+// print('Nhập số thứ nhất:');
+
+//  int num1 = int.parse(stdin.readLineSync()!);
+//  print('Nhập số thứ hai:');
+
+//  int num2 = int.parse(stdin.readLineSync()!);
+//  print('Nhập toán tử :');
+//   String operator = stdin.readLineSync()!;
+
+//  switch (operator) {
+//    case '1':
+//      print('Kết quả: ${num1 + num2}');
+//      break;
+//    case '2':
+//      print('Kết quả: ${num1 - num2}');
+//      break;
+//    case '3':
+//      print('Kết quả: ${num1 * num2}');
+//      break;
+//    case '4':
+//      if (num2 != 0) {
+//        print('Kết quả: ${num1 / num2}');
+//      } else {
+//        print('Lỗi');
+//      }
+//      break;
+// }
+print('Nhập số điểm:');
+  int point = int.parse(stdin.readLineSync()!);
+
+  if (point >= 85) {
+    print('loại giỏi');
+  } else if (point >= 70) {
+    print('loại khá');
+  } else if (point >= 50 ) {
+    print('loại trung bình');
+  } else if (point <= 50 ) {
+    print('yếu');
+  } 
 }
