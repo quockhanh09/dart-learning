@@ -1,8 +1,92 @@
 import 'dart:io';
-
 void main(){
+// //! bài tập
+//b1
+ print("Nhập một số:");
+ int number = int.parse(stdin.readLineSync()!);
+// int number = 5;
+  if (number % 2 == 0) {
+    print("$number là số chẵn.");
+  } else {
+    print("$number là số lẻ.");
+  }
 
-  // print("Hello, World!");
+  //b2 
+  // // int aa =6;
+  // // int bb = 7;
+  //// int cc  = 9;
+  // print("Nhập một số:");
+  // int aa = int.parse(stdin.readLineSync()!);
+  // print("Nhập một số:");
+  // int bb = int.parse(stdin.readLineSync()!);
+  // print("Nhập một số:");
+  // int cc = int.parse(stdin.readLineSync()!);
+  // int max;
+  
+  // if (aa >= bb && aa >= cc) {
+  //   max = aa;
+  // } else if (bb >= aa && bb >= cc) {
+  //   max = bb;
+  // } else {
+  //   max = cc;
+  // }
+  //  print('Số lớn nhất trong ba số là: $max');
+//
+// b3
+//  print('Nhập số thứ nhất:');
+//  int num1 = int.parse(stdin.readLineSync()!);
+
+//  print('Nhập số thứ hai:');
+//  int num2 = int.parse(stdin.readLineSync()!);
+
+//  print('Nhập toán tử :');
+//   String operator = stdin.readLineSync()!;
+
+//  switch (operator) {
+//    case '+':
+//      print('Kết quả: ${num1 + num2}');
+//      break;
+//    case '-':
+//      print('Kết quả: ${num1 - num2}');
+//      break;
+//    case '*':
+//      print('Kết quả: ${num1 * num2}');
+//      break;
+//    case '/':
+//      if (num2 != 0) {
+//        print('Kết quả: ${num1 / num2}');
+//      } else {
+//        print('Lỗi');
+//      }
+//      break;
+// }
+// b4
+// print('Nhập số điểm:');
+
+//   int point = int.parse(stdin.readLineSync()!);
+//   if (100 < point || point >= 85) {
+//     print('loại giỏi');
+//   } else if (point >= 70) {
+//     print('loại khá');
+//   } else if (point >= 50 ) {
+//     print('loại trung bình');
+//   } else if (point <= 50 ) {
+//     print('yếu');
+//   } 
+
+//b5
+  // List<int> nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  // for (int number in nums) {
+  //   if (number % 2 == 0) {
+  //     print('$number là số chẵn');
+  //   } else {
+  //     print('$number là số lẻ');
+  //   }
+  // }
+
+
+// print("Hello, World!");
   //! Operator
 //! Unary postfix (toán tử đơn hậu tố)
   // Toán tử này áp dụng sau 1 biểu thức (expression)
@@ -313,77 +397,4 @@ void main(){
   // print("Hello, $inputedName\nYour student ID: $studentId");
   // Để có thể nhập từ bàn phím thì cần phải chạy dart application trên terminal
   // bằng câu lệnh: dart run path-to-dart-file
-
-// //! bài tập
-//b1
-//  print("Nhập một số:");
-//  int number = int.parse(stdin.readLineSync()!);
-// // int number = 5;
-//   if (number % 2 == 0) {
-//     print("$number là số chẵn.");
-//   } else {
-//     print("$number là số lẻ.");
-//   }
-
-  //b2 
-  // int aa =6;
-  // int bb = 7;
-  // int cc  = 9;
-  // print("Nhập một số:");
-  // int aa = int.parse(stdin.readLineSync()!);
-  // print("Nhập một số:");
-  // int bb = int.parse(stdin.readLineSync()!);
-  // print("Nhập một số:");
-  // int cc = int.parse(stdin.readLineSync()!);
-  // int max;
-  
-  // if (aa >= bb && aa >= cc) {
-  //   max = aa;
-  // } else if (bb >= aa && bb >= cc) {
-  //   max = bb;
-  // } else {
-  //   max = cc;
-  // }
-  //  print('Số lớn nhất trong ba số là: $max');
-//
-// b3
-// print('Nhập số thứ nhất:');
-
-//  int num1 = int.parse(stdin.readLineSync()!);
-//  print('Nhập số thứ hai:');
-
-//  int num2 = int.parse(stdin.readLineSync()!);
-//  print('Nhập toán tử :');
-//   String operator = stdin.readLineSync()!;
-
-//  switch (operator) {
-//    case '1':
-//      print('Kết quả: ${num1 + num2}');
-//      break;
-//    case '2':
-//      print('Kết quả: ${num1 - num2}');
-//      break;
-//    case '3':
-//      print('Kết quả: ${num1 * num2}');
-//      break;
-//    case '4':
-//      if (num2 != 0) {
-//        print('Kết quả: ${num1 / num2}');
-//      } else {
-//        print('Lỗi');
-//      }
-//      break;
-// }
-print('Nhập số điểm:');
-  int point = int.parse(stdin.readLineSync()!);
-
-  if (point >= 85) {
-    print('loại giỏi');
-  } else if (point >= 70) {
-    print('loại khá');
-  } else if (point >= 50 ) {
-    print('loại trung bình');
-  } else if (point <= 50 ) {
-    print('yếu');
-  } 
-}
+  }
