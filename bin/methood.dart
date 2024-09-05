@@ -342,79 +342,653 @@
 // Order 1 status updated to OrderStatus.delivered
 // Final status of Order 1: OrderStatus.delivered
 
-enum StudyStatus { Active, Graduated, DroppedOut }
+// enum StudyStatus { Active, Graduated, DroppedOut }
 
-class Student {
-  final int id;
-  final String name;
-  final int age;
-  final StudyStatus status;
+// class Student {
+//   final int id;
+//   final String name;
+//   final int age;
+//   final StudyStatus status;
 
-  Student({
-    required this.id,
-    required this.name,
-    required this.age,
-    required this.status,
-  });
+//   Student({
+//     required this.id,
+//     required this.name,
+//     required this.age,
+//     required this.status,
+//   });
 
-  Student copyWith({
-    String? name,
-    int? age,
-    StudyStatus? status,
-  }) {
-    return Student(
-      id: this.id, 
-      name: name ?? this.name,
-      age: age ?? this.age,
-      status: status ?? this.status,
-    );
+//   Student copyWith({
+//     String? name,
+//     int? age,
+//     StudyStatus? status,
+//   }) {
+//     return Student(
+//       id: this.id, 
+//       name: name ?? this.name,
+//       age: age ?? this.age,
+//       status: status ?? this.status,
+//     );
+//   }
+
+//   @override
+//   String toString() {
+//     return 'Student(id: $id, name: $name, age: $age, status: $status)';
+//   }
+// }
+
+// void addStudent(List<Student> students, Student student) {
+//   students.add(student);
+// }
+
+// void updateStudent(List<Student> students, Student updatedStudent) {
+//   int index = students.indexWhere((student) => student.id == updatedStudent.id);
+//   if (index != -1) {
+//     students[index] = updatedStudent;
+//   } else {
+//     print("Student not found!");
+//   }
+// }
+
+// double calculateAverageAge(List<Student> students) {
+//   if (students.isEmpty) return 0.0;
+//   int totalAge = students.fold(0, (sum, student) => sum + student.age);
+//   return totalAge / students.length;
+// }
+
+// void main() {
+
+//  List<Student> students = [
+//     Student(id: 1, name: 'minh', age: 19, status: StudyStatus.Active),
+//     Student(id: 2, name: 'khanh', age: 20, status: StudyStatus.Graduated),
+//     Student(id: 3, name: 'nhi', age: 21, status: StudyStatus.DroppedOut),
+//   ];
+
+//   print("Danh sách sinh viên ban đầu:");
+//   students.forEach(print);
+
+//   Student newStudent = Student(id: 4, name: 'duy', age: 20, status: StudyStatus.Active);
+//   addStudent(students, newStudent);
+
+//   Student updatedStudent = students[0].copyWith(age: 21, status: StudyStatus.Graduated);
+//   updateStudent(students, updatedStudent);
+
+//   print("\nDanh sách sinh viên sau khi thay đổi:");
+//   students.forEach(print);
+
+//   double averageAge = calculateAverageAge(students);
+//   print("\nTuổi trung bình của sinh viên: $averageAge");
+// }
+
+
+// import 'package:collection/collection.dart';
+
+// class Student {
+//   final String id;
+
+//   final String name;
+//   final int age;
+//   final StudyStatus status;
+//   Student({
+//     required this.id,
+//     required this.name,
+//     required this.age,
+//     this.status = StudyStatus.active,
+//   });
+
+//   Student copyWith({String? newName, int? newAge, StudyStatus? newStatus}) {
+//     return Student(
+//         id: id,
+//         name: newName ?? name,
+//         age: newAge ?? age,
+//         status: newStatus ?? status);
+//   }
+
+//   @override
+//   String toString() {
+//     return "Student: (Id: $id, Name: $name, Age: $age, Status: $status) \n";
+//   }
+// }
+// enum StudyStatus { active, graduated, droppedOut }
+//! Bất lợi khi sử dụng thuộc tính Private
+//? 1. Khó kiểm soát instance mà bạn đã thay đổi
+
+//? 2. Có bao nhiêu thuộc tính private có thể thay đổi giá trị
+//? => tạo ra bấy nhiêu hàm set
+
+// void addStudent(List<Student> students, Student student) {
+// //! (Pass by value)
+// double calculateAverageAge(List<Student> students) {
+//   int totalAge = 0;
+//   for (var student in students) {
+//     totalAge = totalAge + student.age;
+//   }
+//   return totalAge / students.length;
+// }
+// void updateStudent(List<Student> students, Student updatedStudent) {
+//   final indexInList = students
+//       .indexWhere((studentElement) => studentElement.id == updatedStudent.id);
+//   final isStudentExistInList = indexInList != -1;
+//   if (isStudentExistInList) {
+//     students[indexInList] = updatedStudent;
+//   }
+// }
+// void main(List<String> args) {
+//   final List<Student> listStudents = [];
+//   addStudent(listStudents, Student(id: "1", name: "huy", age: 10));
+//   addStudent(listStudents, Student(id: "2", name: "Alice", age: 12));
+//   addStudent(listStudents, Student(id: "3", name: "John", age: 20));
+//   print(listStudents.toString());
+
+//   final requestToChangeStudent =
+//       listStudents.firstWhereOrNull((element) => element.id == "2");
+//   if (requestToChangeStudent != null) {
+//     final updatedStudent = requestToChangeStudent.copyWith(newName: "Sandra");
+//     print("Updated Student: $updatedStudent");
+//     print("Request to change Student: $requestToChangeStudent");
+//     updateStudent(listStudents, updatedStudent);
+//     print(listStudents.toString());
+//     // requestToChangeStudent.name = "Sandra";
+//     // print(listStudents.toString());
+//   }
+
+//   // print(
+//   //     "Tuổi trung bình của danh sách sinh viên: ${calculateAverageAge(listStudents)}");
+// }
+
+
+//! Mixin
+// Mixin là một khái niệm của Dart, thường là mixin class,
+// dùng để cung cấp thêm chức năng cho một class có sẵn nào đó
+
+//! Đặc điểm Mixin
+//  1. Là một lớp đặc biệt được sử dụng để chia sẻ code với các lớp khác
+//    Thay vì kế thừa từ một lớp cha, một lớp có thể sử dụng một mixin
+//    để lấy các phương thức và thuộc tính được định nghĩa trong mixin đó.
+
+//  2. Một mixin không thể được khởi tạo trực tiếp,
+//     tức là bạn không thể tạo đối tượng từ một mixin.
+
+//  3. Không cần phải là lớp trừu tượng:
+//     Một mixin có thể chứa các phương thức và thuộc tính cụ thể
+//     mà không cần phải là lớp trừu tượng.
+
+//! Cách sử dụng Mixin
+// Bạn có thể sử dụng một mixin trong một lớp khác bằng cách sử dụng từ khóa with.
+//? Mixin CanRun và CanFly:
+// Định nghĩa các phương thức run() và fly().
+// Những phương thức này có thể được sử dụng trong các lớp khác
+//? bằng cách sử dụng từ khóa with.
+// //? Lớp Bird: Sử dụng mixin CanFly, do đó lớp này có thể truy cập phương thức fly().
+
+// mixin CanFly {
+//   void fly() {
+//     print('Flying');
+//   }
+// }
+
+// mixin CanRun {
+//   void run() {
+//     print('Running');
+//   }
+// }
+
+// class Bird with CanFly {
+//   void chirp() {
+//     print('Chirping');
+//   }
+
+//   @override
+//   void fly() {
+//     print('Flying cao 50m');
+//   }
+// }
+// // //? Lớp Human: Sử dụng mixin CanRun, do đó lớp này có thể truy cập phương thức run().
+// class Human with CanRun {
+//   void speak() {
+//     print('Speaking');
+//   }
+// }
+// // //? Lớp SuperHero: Sử dụng cả hai mixin CanRun và CanFly,
+// // //? do đó lớp này có thể truy cập cả hai phương thức run() và fly().
+// class SuperHero with CanRun, CanFly {
+//   @override
+//   void fly() {
+//     print("Bay cao vô cực");
+//   }
+
+//   void saveTheDay() {
+//     print('Saving the day!');
+//   }
+
+
+// }
+
+
+// mixin CanFly {
+//   void fly() {
+//     print('Flying');
+//   }
+// }
+
+// mixin CanRun {
+//   void run() {
+//     print('Running');
+//   }
+// }
+// class Bird with CanFly {
+//   void chirp() {
+//     print('Chirping');
+//   }
+
+//   @override
+//   void fly() {
+//     print('Flying cao 50m');
+//   }
+// }
+// // //? Lớp Human: Sử dụng mixin CanRun, do đó lớp này có thể truy cập phương thức run().
+// class Human with CanRun {
+//   void speak() {
+//     print('Speaking');
+//   }
+// }
+// // //? Lớp SuperHero: Sử dụng cả hai mixin CanRun và CanFly,
+// // //? do đó lớp này có thể truy cập cả hai phương thức run() và fly().
+// class SuperHero with CanRun, CanFly {
+//   @override
+//   void fly() {
+//     print("Bay cao vô cực");
+//   }
+
+//   void saveTheDay() {
+//     print('Saving the day!');
+//   }
+// }
+
+//? Mixin CanRun và CanFly:
+// Định nghĩa các phương thức run() và fly().
+// Những phương thức này có thể được sử dụng trong các lớp khác
+//? bằng cách sử dụng từ khóa with.
+// //? Lớp Bird: Sử dụng mixin CanFly, do đó lớp này có thể truy cập phương thức fly().
+
+
+//! Thuộc tính trong Mixin
+// mixin CanSwim {
+//   double swimSpeed = 0; // Thuộc tính công khai
+//   void swim() {
+//     print('Swimming at speed $swimSpeed');
+//   }
+// }
+// class Fish with CanSwim {
+//   String species;
+
+//   Fish(this.species);
+
+//   void showDetails() {
+//     print('Species: $species');
+//     swimSpeed = 10;
+//     swim();
+//   }
+// }
+// class Human with CanSwim {
+//   String name;
+
+//   Human(this.name);
+
+//   void showDetails() {
+//     print('Name: $name');
+//     swim();
+//   }
+// }
+//! Khi nào nên định nghĩa Thuộc tính trong Mixin
+//? Chia sẻ trạng thái:
+//  Nếu bạn cần chia sẻ một hoặc nhiều thuộc tính cụ thể
+//  giữa nhiều lớp mà không cần tạo một hệ thống phân cấp phức tạp,
+//  mixin là một cách hiệu quả để làm điều này.
+
+//? Tính linh hoạt:
+//  Các lớp có thể thay đổi hoặc ghi đè
+//  giá trị của các thuộc tính được định nghĩa trong mixin
+//  để phù hợp với nhu cầu của lớp đó.
+
+//! Extension
+// Extension trong Dart là một tính năng cho phép bạn mở rộng chức năng
+// của các lớp hiện có mà không cần kế thừa hoặc sửa đổi code của lớp đó
+
+//! Khi nào nên sử dụng Extension?
+// - Khi bạn muốn mở rộng chức năng của một lớp mà không cần tạo ra một lớp con.
+// - Khi bạn muốn giữ mã nguồn của mình gọn gàng
+//   và dễ đọc bằng cách thêm các chức năng vào lớp theo cách mô-đun.
+
+//! Cách định nghĩa Extension
+// Bạn có thể định nghĩa một extension bằng cách sử dụng từ khóa extension,
+// theo sau là tên của extension và từ khóa on,
+// rồi đến kiểu dữ liệu mà bạn muốn mở rộng.
+// extension StringExtensions on String {
+//   // Thêm một phương thức để kiểm tra chuỗi có phải là một số hay không
+//   bool get isNumeric {
+//     return double.tryParse(this) != null;
+//   }
+
+//   // Thêm một phương thức mới để đảo ngược chuỗi
+//   String get reversed {
+//     return split('').reversed.join('');
+//   }
+// }
+// void main() {
+//   String example = "Dart Flutter";
+
+//   // Sử dụng phương thức mới reversed
+
+//   print(example.reversed); // In ra: traD
+
+//   // Sử dụng phương thức mới isNumeric
+//   print(example.isNumeric); // In ra: false
+
+//   String number = "12345";
+//   print(number.isNumeric); // In ra: true
+// }
+
+// void main(List<String> args) {
+//   final temperatureInC = 40.5;
+//   final temperatureInF = temperatureInC.toF;
+
+//   print("Độ C là: ${temperatureInC.addCKeyword}");
+//   print("Độ F là: ${temperatureInF.addFKeyword}");
+// }
+
+// extension TemperatureConvert on double {
+//   double get toC => (5 / 9) * (this - 32);
+//   double get toF => (9 / 5) * this + 32;
+
+//   double toFVer2() => (9 / 5) * this + 32;
+// }
+
+// extension TemperatureKeyword on double {
+//   String get addCKeyword => "$this°C";
+//   String get addFKeyword => "$this°F";
+// }
+
+//! Generic
+// Trong nhiều trường hợp, bạn muốn viết một lớp hoặc một hàm mà có thể làm việc với nhiều loại dữ liệu khác nhau,
+// nhưng vẫn giữ được tính an toàn kiểu dữ liệu.
+// Thay vì phải viết các phiên bản khác nhau của cùng một lớp hoặc hàm cho từng kiểu dữ liệu,
+// bạn có thể sử dụng Generic để làm điều này.
+
+//? Generic là kí hiệu một ký tự nào đó ví dụ như E, T, K, V,...
+//? để đại diện cho một kiểu dữ liệu chưa biết khi viết hàm hoặc method,
+//? nhưng khi sử dụng thì phải truyền kiểu dữ liệu mong muốn vào.
+//! Cách sử dụng Generic
+
+//? Generic trong lớp (Class Generics)
+// Bạn có thể định nghĩa một lớp với các tham số kiểu (type parameters) để lớp có thể hoạt động với nhiều kiểu dữ liệu khác nhau.
+
+//? Box<T>: Đây là một lớp generic với tham số kiểu T.
+// Điều này có nghĩa là T có thể là bất kỳ kiểu dữ liệu nào, và Box sẽ lưu trữ một giá trị của kiểu đó.
+// class Box<T> {
+//   T value;
+
+//   Box(this.value);
+
+//   T getValue() {
+//     return value;
+//   }
+
+//   void updateValue(T newValue) {
+//     value = newValue;
+//   }
+// }
+
+// class BoxInt {
+//   int value;
+//   BoxInt({
+//     required this.value,
+//   });
+
+//   int getValue() {
+//     return value;
+//   }
+
+//   void updateValue(int newValue) {
+//     value = newValue;
+//   }
+// }
+// class BoxString {
+//   String value;
+//   BoxString({
+//     required this.value,
+//   });
+
+//   String getValue() {
+//     return value;
+//   }
+
+//   void updateValue(String newValue) {
+//     value = newValue;
+//   }
+// }
+
+// void main() {
+//   //? Khi tạo một đối tượng của Box, bạn chỉ định kiểu dữ liệu cụ thể mà Box sẽ làm việc với
+
+//   // Box cho kiểu int
+//   Box<int> intBox = Box<int>(123);
+//   print('Integer value: ${intBox.getValue()}'); // In ra: Integer value: 123
+
+//   // Box cho kiểu String
+//   Box<String> stringBox = Box('Hello');
+//   print('String value: ${stringBox.getValue()}'); // In ra: String value: Hello
+
+//   // Cập nhật giá trị trong Box
+//   intBox.updateValue(456);
+//   print(
+//       'Updated integer value: ${intBox.getValue()}'); // In ra: Updated integer value: 456
+// }
+
+//! Generic trong hàm (Function Generics)
+// Hàm cũng có thể sử dụng Generic để làm việc với nhiều loại dữ liệu khác nhau.
+
+//? Đây là một hàm generic với tham số kiểu T.
+//? Điều này có nghĩa là hàm findMax có thể hoạt động với bất kỳ kiểu dữ liệu nào mà T đại diện,
+//? miễn là kiểu đó triển khai giao diện Comparable.
+
+//? Comparable: Comparable là một giao diện (interface) trong Dart được sử dụng để so sánh các đối tượng với nhau.
+// Khi một lớp triển khai giao diện Comparable,
+// nó cần cung cấp một phương thức có tên là compareTo để xác định cách so sánh hai đối tượng của lớp đó
+
+// void main() {
+//   print('Max int: ${findMax<num>(10, 20)}'); // In ra: Max int: 20
+//   print(
+//       'Max string: ${findMax<String>('apple', 'banana')}'); // In ra: Max string: banana
+// }
+
+// T findMax<T extends Comparable<T>>(T a, T b) {
+//   // Hàm findMax so sánh hai giá trị a và b và trả về giá trị lớn hơn.
+//   if (a.compareTo(b) > 0) {
+//     return a;
+//   } else {
+//     return b;
+//   }
+// }
+
+// //! Generic trong Interface
+// //? Generic cũng có thể được sử dụng trong Interface để tạo các Interface làm việc với nhiều loại dữ liệu khác nhau.
+// abstract class Storage<T> {
+//   void addItem(T item);
+//   T? getItem();
+// }
+// class MemoryStorage<B> implements Storage<B> {
+//   B? _item;
+
+//   @override
+//   void addItem(B item) {
+//     _item = item;
+//   }
+
+//   @override
+//   B? getItem() {
+//     return _item;
+//   }
+// }
+
+//! Thư viện
+// Thư viện là các đoạn code hay chức năng dc phát triển bởi Lập trình viên khác đóng góp
+// Chúng ta có thể sử dụng thư viện để tối ưu hiệu suất công việc
+// Tránh việc viết lại 1 chức năng đã có trên cộng đồng thư viện
+
+//! Ví dụ sử dụng thư viện
+// Để viết một extension cho num về việc hiển thị giá tiền Việt Nam, có dấu , và . để phân tách chữ số.
+// Chúng ta sẽ phải chia phần ngàn, sau đó add separator, rồi thêm postfix
+// => Rất dài dòng và phức tạp logic
+
+// Khi đó sử dụng thư viện intl để tăng tốc và có thêm nhiều method hay ho khác
+
+// import 'package:intl/intl.dart';
+
+// void main(List<String> args) {
+//   final amount = 100000000.123;
+//   final vnCurrencyFormat =
+//       NumberFormat.currency(locale: "vi_VN", decimalDigits: 2);
+//   print(vnCurrencyFormat.format(amount));
+// }
+
+//b1
+// mixin HasSpeed {
+//   double speed = 0.0;
+//   double calculateTime(double distance) {
+//     if (speed > 0) {
+//       return distance / speed;
+//     } else {
+//       return double.infinity; 
+//     }
+//   }
+// }
+
+
+// mixin HasAcceleration {
+//   double acceleration = 0.0;
+
+//   double calculateDistance(double time) {
+//     return 0.5 * acceleration * time * time;
+//   }
+// }
+
+// class RaceCar with HasSpeed {
+//   RaceCar(double speed) {
+//     this.speed = speed;
+//   }
+// }
+
+// class JetCar with HasSpeed, HasAcceleration {
+//   JetCar(double speed, double acceleration) {
+//     this.speed = speed;
+//     this.acceleration = acceleration;
+//   }
+// }
+
+// void main() {
+
+//   RaceCar raceCar = RaceCar(40.0);
+
+//   JetCar jetCar = JetCar(50.0, 10.0);
+
+
+//   double raceCarTime = raceCar.calculateTime(100.0);
+//   print('RaceCar hoàn thành cuộc đua trong $raceCarTime giờ.');
+//   double jetCarTime = jetCar.calculateTime(1000.0);
+//   print('JetCar hoàn thành cuộc đua trong $jetCarTime giờ.');
+
+//   double jetCarDistance = jetCar.calculateDistance(5.0);
+//   print('JetCar di chuyển được $jetCarDistance đơn vị trong 5 giờ.');
+// }
+
+// b2
+// extension IntExtensions on int {
+
+//   bool isPrime() {
+//     if (this <= 1) return false;
+//     for (int i = 2; i <= this ~/ 2; i++) {
+//       if (this % i == 0) return false;
+//     }
+//     return true;
+//   }
+
+//   int factorial() {
+//     if (this < 0) throw Exception('Factorial is not defined for negative numbers.');
+//     if (this == 0) return 1;
+//     int result = 1;
+//     for (int i = 1; i <= this; i++) {
+//       result *= i;
+//     }
+//     return result;
+//   }
+//   bool isEvenNumber() {
+//     return this % 2 == 0;
+//   }
+// }
+
+// void main() {
+//   int number = 5;
+//   print('$number is prime: ${number.isPrime()}');
+//   print('Factorial of $number: ${number.factorial()}');
+//   print('$number is even: ${number.isEvenNumber()}');
+
+//  number = 4;
+//   print('$number is prime: ${number.isPrime()}');
+//   print('Factorial of $number: ${number.factorial()}');
+//   print('$number is even: ${number.isEvenNumber()}');
+// }
+
+
+//b3 
+// Lớp Box sử dụng Generic T
+class Box<T> {
+  // Thuộc tính để lưu trữ giá trị kiểu T
+  T? value;
+
+  // Phương thức để đặt giá trị mới vào hộp
+  void setValue(T newValue) {
+    value = newValue;
   }
 
-  @override
-  String toString() {
-    return 'Student(id: $id, name: $name, age: $age, status: $status)';
+  // Phương thức để lấy giá trị từ hộp
+  T? getValue() {
+    return value;
   }
-}
 
-void addStudent(List<Student> students, Student student) {
-  students.add(student);
-}
-
-void updateStudent(List<Student> students, Student updatedStudent) {
-  int index = students.indexWhere((student) => student.id == updatedStudent.id);
-  if (index != -1) {
-    students[index] = updatedStudent;
-  } else {
-    print("Student not found!");
+  // Phương thức kiểm tra giá trị có phải là số chẵn (nếu là số nguyên)
+  bool isEven() {
+    if (value is int) {
+      return (value as int) % 2 == 0;
+    }
+    return false;
   }
-}
 
-double calculateAverageAge(List<Student> students) {
-  if (students.isEmpty) return 0.0;
-  int totalAge = students.fold(0, (sum, student) => sum + student.age);
-  return totalAge / students.length;
+  // Phương thức trả về độ dài của chuỗi (nếu là chuỗi)
+  int stringLength() {
+    if (value is String) {
+      return (value as String).length;
+    }
+    return -1;
+  }
 }
 
 void main() {
+  // Tạo đối tượng Box<int>
+  var intBox = Box<int>();
+  intBox.setValue(42);
+  print("Giá trị trong intBox: ${intBox.getValue()}");
+  print("Giá trị trong intBox có phải là số chẵn? ${intBox.isEven()}");
 
- List<Student> students = [
-    Student(id: 1, name: 'minh', age: 19, status: StudyStatus.Active),
-    Student(id: 2, name: 'khanh', age: 20, status: StudyStatus.Graduated),
-    Student(id: 3, name: 'nhi', age: 21, status: StudyStatus.DroppedOut),
-  ];
+  // Tạo đối tượng Box<String>
+  var stringBox = Box<String>();
+  stringBox.setValue("Flutter");
+  print("Giá trị trong stringBox: ${stringBox.getValue()}");
+  print("Độ dài chuỗi trong stringBox: ${stringBox.stringLength()}");
 
-  print("Danh sách sinh viên ban đầu:");
-  students.forEach(print);
-
-  Student newStudent = Student(id: 4, name: 'duy', age: 20, status: StudyStatus.Active);
-  addStudent(students, newStudent);
-
-  Student updatedStudent = students[0].copyWith(age: 21, status: StudyStatus.Graduated);
-  updateStudent(students, updatedStudent);
-
-  print("\nDanh sách sinh viên sau khi thay đổi:");
-  students.forEach(print);
-
-  double averageAge = calculateAverageAge(students);
-  print("\nTuổi trung bình của sinh viên: $averageAge");
+  // Kiểm tra khi sử dụng với kiểu dữ liệu khác
+  var doubleBox = Box<double>();
+  doubleBox.setValue(3.14);
+  print("Giá trị trong doubleBox: ${doubleBox.getValue()}");
+  print("Giá trị trong doubleBox có phải là số chẵn? ${doubleBox.isEven()}");
+  print("Độ dài chuỗi trong doubleBox: ${doubleBox.stringLength()}");
 }
